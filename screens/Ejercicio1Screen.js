@@ -1,14 +1,11 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-import Login from '../components/Login'
 
 export default function Ejercicio1Screen() {
   return (
     <View style={styles.contenedor}>
-      <Text style={{ fontSize:35 }}>EJERCICIO 1</Text>
-      <Login/>
-      <Login/>
+      <Text style={{ fontSize: 35}}>Ejercicio 1</Text>
     </View>
   )
 }

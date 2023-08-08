@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 
 function MyTabs(){
     return(
-        <Tab.Navigator initialRouteName='Ejercicio1'>
+        <Tab.Navigator initialRouteName='Ejercicio2'>
             <Tab.Screen name= 'Ejercicio1' component={Ejercicio1Screen} />
             <Tab.Screen name= 'Ejercicio2' component={Ejercicio2Screen} />
             <Tab.Screen name= 'Ejercicio3' component={Ejercicio3Screen} />

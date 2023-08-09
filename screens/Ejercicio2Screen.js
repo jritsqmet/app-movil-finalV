@@ -13,32 +13,35 @@ export default function Ejercicio2Screen() {
   const [listaImagenes, setlistaImagenes] = useState([])
 
   // HOOK DE EFECTO
- useEffect(() => {
+  useEffect(() => {
 
-  if( listaImagenes.length !==0 ){
-    Alert.alert('Mensaje', 'La lista se ha actualizado')
-  }
- }, [listaImagenes])
- 
+    if (listaImagenes.length !== 0) {
+      //Alert.alert('Mensaje', 'La lista se ha actualizado')
+    }
+  }, [listaImagenes])
+
   /////////////
 
 
-  const agregarElementos = ( nombre, descripcion, url ) => {
-    
-    if ( nombre.trim() !== ''  && descripcion.trim() !== '' && url.trim() !== '' ){
-      let temp = [ ...listaImagenes, {nombre, descripcion, url} ];
-      setlistaImagenes( temp )
+  const agregarElementos = (nombre, descripcion, url) => {
+
+    if (nombre.trim() !== '' && descripcion.trim() !== '' && url.trim() !== '') {
+      let temp = [...listaImagenes, { nombre, descripcion, url }];
+      setlistaImagenes(temp)
 
       setnombre('');
       setdescripcion('');
       seturl('');
 
-    }else{
-      Alert.alert("Mensaje","No se aceptan campos en blanco")
+    } else {
+      Alert.alert("Mensaje", "No se aceptan campos en blanco")
     }
-    
-    
+
+
   }
+
+
+
 
   return (
     <View style={styles.contenedor}>
@@ -54,28 +57,31 @@ export default function Ejercicio2Screen() {
         placeholder='Ingrese descripcion'
         multiline={true}
         style={styles.input}
-        onChangeText={ ( texto ) => setdescripcion( texto)}
+        onChangeText={(texto) => setdescripcion(texto)}
         value={descripcion}
       />
 
       <TextInput
         placeholder='Ingrese url'
         style={styles.input}
-        onChangeText={ ( texto ) => seturl( texto)}
+        onChangeText={(texto) => seturl(texto)}
         value={url}
         keyboardType='url'
       />
 
-      <Button title='Guardar' onPress={()=> agregarElementos( nombre, descripcion, url )} />
+      <Button title='Guardar' onPress={() => agregarElementos(nombre, descripcion, url)} />
 
       <View
         style={{ borderWidth: 1, width: '90%', marginTop: 10, marginBottom: 10 }}
       />
 
-      <FlatList 
-        data={ listaImagenes}
-        renderItem={ ( {item} )=>(
-          <Tarjeta datos = {item} />
+      <FlatList
+        data={listaImagenes}
+        renderItem={({ item }) => (
+          <View>
+            <Tarjeta datos={item} />
+            <Button title='Eliminar' color={'red'} />
+          </View>
         )}
       />
 

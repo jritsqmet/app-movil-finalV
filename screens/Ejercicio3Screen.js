@@ -22,7 +22,7 @@ export default function Ejercicio3Screen() {
      .then( response => response.json() )
      .then( datos =>  setlistaUsuarios(datos.users) )
     }
-    console.log(listaUsuarios)
+   // console.log(listaUsuarios)
   
   }, [listaUsuarios])
   
